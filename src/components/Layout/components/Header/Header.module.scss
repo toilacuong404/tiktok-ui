@@ -29,6 +29,12 @@
   }
 }
 
+.search,
+.search-result {
+  width: 361px;
+  max-width: 100%;
+}
+
 .search {
   position: relative;
   display: flex;
@@ -43,6 +49,13 @@
 
   &:focus-within {
     border-color: rgba(22, 24, 35, 0.2);
+  }
+
+  .search-label{
+    color: #525253;
+    font-size: 1.4rem;
+    padding: 8px 12px;
+    font-weight: 700;
   }
 
   input {
@@ -121,4 +134,12 @@
   to {
     transform: translateY(-50%) rotate(360deg);
   }
+}
+
+.search-result {
+  width: 361px;
+}
+
+.custom-login{
+  color: red;
 }
