@@ -28,3 +28,37 @@
 .menu-popper {
   padding-bottom: 8px;
 }
+
+//Header
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 100%;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.08);
+  }
+}
+
+.header-title {
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  color: var(--black);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+  transform: translate(-50%, -50%);
+}
