@@ -143,3 +143,19 @@
 .custom-login{
   color: red;
 }
+
+.more-btn{
+  font-size: 2rem;
+  padding: 4px 8px;
+  background-color: transparent;
+  cursor: pointer;
+  margin-left: 16px;
+  border-radius: 50%;
+  &:hover{
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+}
+
+.menu-items{
+  width: 224px;
+}

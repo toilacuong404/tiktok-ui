@@ -3,13 +3,29 @@ import classNames from "classnames/bind";
 import React,{ useEffect, useState } from "react";
 import images from "@/assets/images/images.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleXmark,faMagnifyingGlass, faSpinner, faSignIn } from "@fortawesome/free-solid-svg-icons";
+import { faCircleXmark,faMagnifyingGlass, faSpinner, faSignIn, faEllipsisVertical, faEarth, faKeyboard, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 import Tippy from "@tippyjs/react/headless";
 import {Wrapper as PopperWrapper} from "@/components/Popper"
 import AccountItem from "../AccountItem/AccountItem";
 import Button from "@/components/Button/button";
+import Menu from "@/components/Popper/Menu/menu";
 
 const cx = classNames.bind(styles);
+const MENU_ITEMS = [
+  {
+    icon: <FontAwesomeIcon icon ={faEarth}/>,
+    title: 'English',
+  },
+  {
+    icon: <FontAwesomeIcon icon ={faCircleQuestion}/>,
+    title: 'Feedback and help',
+    to: '/feedback'  
+  },
+  {
+    icon: <FontAwesomeIcon icon ={faKeyboard}/>,
+    title: 'Keyboard shortcuts', 
+  }
+]
 
 function Header() {
   const [searchResult, setSearchResult]= useState([1,2,3,4]);
@@ -25,7 +41,7 @@ function Header() {
           render={attrs=>(
             <div className={cx("search-result")} tabIndex="-1" {...attrs}>
               <PopperWrapper>
-                <h4 className={cx("search-label")}>Accoutants</h4>
+                <h4 className={cx("search-label")}>Accountants</h4>
                 <AccountItem />
                 <AccountItem />
                 <AccountItem />
@@ -49,6 +65,13 @@ function Header() {
           <Button text>Upload</Button>
           <Button primary rightIcon={<FontAwesomeIcon icon={faSignIn} />}>Log in</Button>
           <Button rounded className={cx('custom-login')}>Get app</Button>
+          <Menu
+            items = {MENU_ITEMS}
+          >            
+            <button className={cx('more-btn')}>
+              <FontAwesomeIcon icon={faEllipsisVertical} />
+            </button>
+          </Menu>
         </div>
       </div>
     </header>
