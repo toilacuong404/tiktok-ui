@@ -9,6 +9,7 @@
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
 }
 
+// Header layout
 .inner {
   display: flex;
   align-items: center;
@@ -29,6 +30,7 @@
   }
 }
 
+// Search
 .search,
 .search-result {
   width: 361px;
@@ -44,18 +46,15 @@
   padding-left: 16px;
   background-color: rgba(22, 24, 35, 0.06);
   border-radius: var(--search-border-radius);
-  border: 1px solid transparent; // Fixed from 1.5px to avoid uneven sub-pixel rendering (1px top, 2px bottom gap)
+  border: 1px solid transparent;
   overflow: hidden;
 
   &:focus-within {
     border-color: rgba(22, 24, 35, 0.2);
-  }
 
-  .search-label {
-    color: #525253;
-    font-size: 1.4rem;
-    padding: 8px 12px;
-    font-weight: 700;
+    .search-btn {
+      color: rgba(22, 24, 35, 0.74);
+    }
   }
 
   input {
@@ -69,18 +68,28 @@
 
   input:not(:placeholder-shown) ~ .search-btn {
     display: none;
-    color: rgba(22, 24, 35, 0.75);
   }
 
   &::after {
     content: "";
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     right: 52px;
     width: 1px;
     height: 28px;
     background-color: rgba(22, 24, 35, 0.12);
+    transform: translateY(-50%);
+  }
+}
+
+.search-result {
+  width: 361px;
+
+  .search-label {
+    color: #525253;
+    font-size: 1.4rem;
+    padding: 8px 12px;
+    font-weight: 700;
   }
 }
 
@@ -100,6 +109,7 @@
 
 .clear {
   cursor: pointer;
+  z-index: 1;
 }
 
 .search-btn {
@@ -109,7 +119,7 @@
   flex-shrink: 0;
   width: 52px;
   height: 100%;
-  color: rgba(22, 24, 35, 0.74);
+  color: rgba(22, 24, 35, 0.34);
   font-size: 1.8rem;
   background-color: transparent;
 
@@ -136,17 +146,22 @@
   }
 }
 
-.search-result {
-  width: 361px;
+// Header actions
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.action-btn {
+  font-size: 2.2rem;
+  color: #161823;
+  background-color: transparent;
+  padding: 4px 12px;
+  cursor: pointer;
 }
 
 .custom-login {
   color: red;
-}
-
-.actions {
-  display: flex;
-  align-items: center;
 }
 
 .more-btn {
@@ -161,14 +176,6 @@
   }
 }
 
-.action-btn {
-  font-size: 2.2rem;
-  color: #161823;
-  background-color: transparent;
-  padding: 4px 12px;
-  cursor: pointer;
-}
-
 .user-avatar {
   width: 32px;
   height: 32px;
@@ -179,6 +186,7 @@
   margin-left: 12px;
 }
 
+// Dropdown
 .menu-items {
   width: 224px;
 }

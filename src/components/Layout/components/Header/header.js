@@ -1,16 +1,10 @@
-import styles from "./Header.module.scss";
-import classNames from "classnames/bind";
-import React, { useEffect, useState } from "react";
 import images from "@/assets/images/images.js";
-import Tippy from "@tippyjs/react";
-import HeadlessTippy from "@tippyjs/react/headless";
-import "tippy.js/dist/tippy.css";
-import { Wrapper as PopperWrapper } from "@/components/Popper";
-import AccountItem from "../AccountItem/AccountItem";
 import Button from "@/components/Button/button";
 import Menu from "@/components/Popper/Menu/menu";
+import Tippy from "@tippyjs/react";
+import classNames from "classnames/bind";
+import "tippy.js/dist/tippy.css";
 import {
-  ClearIcon,
   CoinsIcon,
   EarthIcon,
   HelpIcon,
@@ -19,19 +13,17 @@ import {
   LogoutIcon,
   MessageIcon,
   MoreIcon,
-  SearchIcon,
   SettingsIcon,
-  SpinnerIcon,
   TikTokLogo,
   UploadIcon,
   UserIcon,
 } from "../Icons/icon";
+import Search from "../Search/search";
+import styles from "./Header.module.scss";
 
 import Image from "@/components/Images/image";
 
 const cx = classNames.bind(styles);
-
-const img = "C:\Users\toilacuong\OneDrive\Pictures\Screenshots";
 
 const currentUser = true;
 const MENU_ITEMS = [
@@ -64,9 +56,14 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-  const [searchResult, setSearchResult] = useState([1, 2, 3, 4]);
   //Handle logic
-  const handleMenuChange = (menuItem) => {};
+  const handleMenuChange = (menuItem) => {
+    switch (menuItem.type) {
+      case "language":
+        break;
+      default:
+    }
+  };
 
   const userMenu = [
     {
@@ -97,35 +94,8 @@ function Header() {
         <div className={cx("logo")}>
           <TikTokLogo />
         </div>
-        <Tippy
-          interactive
-          visible={searchResult.length > 0}
-          render={(attrs) => (
-            <div className={cx("search-result")} tabIndex="-1" {...attrs}>
-              <PopperWrapper>
-                <h4 className={cx("search-label")}>Accountants</h4>
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-              </PopperWrapper>
-            </div>
-          )}
-        >
-          <div className={cx("search")}>
-            <input
-              placeholder="Search accounts and videos"
-              spellCheck={false}
-            />
-            <button className={cx("clear")}>
-              <ClearIcon />
-            </button>
-            <SpinnerIcon className={cx("loading")} />
-            <button className={cx("search-btn")}>
-              <SearchIcon />
-            </button>
-          </div>
-        </Tippy>
+        {/* ô search */}
+        <Search />
         <div className={cx("actions")}>
           {currentUser ? (
             <>
