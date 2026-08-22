@@ -1,28 +1,27 @@
-import styles from "./AccountItem.module.scss";
-import classNames from "classnames/bind";
-import React from "react";
-import { CheckCircleIcon } from "../Icons/icon";
-import Image from "@/components/Images/image";
 import images from "@/assets/images/images";
+import Image from "@/components/Images/image";
+import classNames from "classnames/bind";
+import { CheckCircleIcon } from "../Icons/icon";
+import styles from "./AccountItem.module.scss";
 
 const cx = classNames.bind(styles);
 
-function AccountItem() {
+function AccountItem({ data }) {
+  const name = data?.name || "Unknown account";
+  const username = data?.username || "unknown";
+  const profileUrl = `/@${username.toLowerCase()}`;
+
   return (
-    <div className={cx("wrapper")}>
-      <Image
-        className={cx("avatar")}
-        src={images.defaultImage}
-        alt="Nguyen Van A"
-      />
+    <a className={cx("wrapper")} href={profileUrl}>
+      <Image className={cx("avatar")} src={images.defaultImage} alt={name} />
       <div className={cx("info")}>
         <h4 className={cx("name")}>
-          <span>Nguyen Van A</span>
+          <span>{name}</span>
           <CheckCircleIcon className={cx("check")} />
         </h4>
-        <span className={cx("username")}>vana2026</span>
+        <span className={cx("username")}>@{username.toLowerCase()}</span>
       </div>
-    </div>
+    </a>
   );
 }
 

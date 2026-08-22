@@ -66,10 +66,6 @@
     background-color: transparent;
   }
 
-  input:not(:placeholder-shown) ~ .search-btn {
-    display: none;
-  }
-
   &::after {
     content: "";
     position: absolute;
